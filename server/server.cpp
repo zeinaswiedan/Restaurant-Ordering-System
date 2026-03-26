@@ -1,62 +1,123 @@
 #include <iostream>
+#include <memory>
+#include <functional>
+#include <ctime>
 #include <boost/asio.hpp>
 #include <vector>
+#include <unistd.h>
 #include <nlohmann/json.hpp>
+
 using json = nlohmann::json;
-
-
 using boost::asio::ip::tcp;
+std::vector<std::string> menu ={
+"Burger"
+"Pizza"
+"Noodles"
+"Pasta"
+"Chicken"
+"Fish"
+"Meat"
+"Shawerma"
+"Fries"
+"Salad"
+"Cake"
+"Soda"
+};
 
 int main() {
 	boost::asio::io_context io;
 
 tcp::acceptor acceptor(io, tcp::endpoint(tcp::v4(), 8080));
-
-std::cout << "Server started on port 8080....." << std::endl;
-
+std::cout << "Server started on port 8080...";
 
 std::vector<json> orders;
 int orderID = 1;
 
 
-while (true) {
-	tcp::socket socket(io);
+std::function<void()> do_accept;
 
-acceptor.accept(socket);
+do_accept = [&]() {
+	auto socket = std::make_shared<tcp::socket>(io);
 
-char data[1024];
-size_t length = socket.read_some(boost::asio::buffer(data));
+acceptor.async_accept(*socket, [&, socket](boost::system::error_code ec) {
+	if (!ec) {
+		std::cout << "Client connected!\n";
+		
 
-std::string received(data, length);
+		auto buffer = std::make_shared<std::vector<char>>(1024);
 
+		socket->async_read_some(boost::asio::buffer(*buffer),
+		[&, socket, buffer](boost::system::error_code ec, size_t length) {
+	if (!ec) {
+		try {
+		std::string received(buffer->data(), length);
+		json order = json::parse(received);
+		std::cout << "Order recieved. \n";
+std::string item = order["item"];
+int quantity = order["quantity"];
 
-json order = json::parse(received);
-order["status"] = "Preparing now";
+bool valid = false;
 
+for (const auto& m : menu) {
+if (m == item) {
+	valid = true;
+break;
+}}
+
+order["time"] = (long)time(nullptr);
 orders.push_back(order);
 
 
 std::cout << "\n ====================== \n";
-std::cout << " New Order #" << orderID << "\n ";
+std::cout << "  New Order #" << orderID << "\n ";
 std::cout << "\n ====================== \n";
 
 std::cout << "Item : " << order["item"].get<std::string>() << std::endl;
 std::cout << "Quantity : " << order["quantity"] << std::endl;
-std::cout << "Status: " << order["status"] << std::endl;
 
 std::cout << "\nAll Orders:\n";
+std::string status;
 for (const auto& o : orders) {
-	std::cout << "-  " << o["item"].get<std::string>()  << " x" << o["quantity"] << "(" << o["status"] << ")" << std::endl;
-}
 
-std::cout << std::endl;
+long now = time(nullptr);
+long orderTime = o["time"].get<long>();
+long diff =  now - orderTime;
+
+
+		if (diff < 10)
+			status = "Preparing";
+		else if (diff < 20)
+			status = "Cooking";
+		else 
+			status = "Ready";
+		std::cout << "- " << o["item"].get<std::string>() << " x" << o["quantity"] << " (" << status << " )" << std::endl; }
+
+
+json response;
+response["status"] = status;
+
+boost::asio::async_write(*socket, 
+                boost::asio::buffer(response.dump()),
+                [socket](boost::system::error_code ec, std::size_t) {
+                        if (ec){
+                                std::cout << "Write error: " << ec.message();
+}
+}
+);
+
 orderID++;
-
-std::string response = " Order received. Status: Preparing "; 
-boost::asio::write(socket, boost::asio::buffer(response));
-
-
 }
+catch (...) {
+	std::cout << "Invalid JSON received\n" ; }
+} 
+	} 
+		);
+			}
+do_accept();
+});
+};
+do_accept();
+io.run();
 return 0;
-
 }
+
