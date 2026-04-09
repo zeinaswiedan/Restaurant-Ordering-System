@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>835</width>
+    <height>675</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background-color: #A8E6CF;
+    color: #2d3748;
+    border: 2px solid #81C784;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #95d5b2;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #f5efe6;</string>
+   </property>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>-10</y>
+      <width>721</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="welcomePage">
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>50</y>
+        <width>533</width>
+        <height>480</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+    background-color: #fffbfd;
+    border: 2px solid #f5e6ec;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="welcomePageTitle">
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame {
+    background-color: #fff7fa;
+    border: 2px solid #f3d9e3;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700; color:#63452c;&quot;&gt;Welcome !&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="RestaurantOrderingSystem">
+            <property name="styleSheet">
+             <string notr="true">QFrame {
+    background-color: #fff7fa;
+    border: 2px solid #f3d9e3;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#26a269;&quot;&gt;𓌉◯𓇋     Restaurant Ordering System&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="nameLineEdit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border: 2px solid #cccccc;
+Color: black;
+    border-radius: 10px;
+    padding: 8px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Name:  </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="customerButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Customer</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="staffButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}</string>
+            </property>
+            <property name="text">
+             <string>Restaurant Staff</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="pageStatus">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    padding: 8px;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Status:  Waiting.....&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="menuPage">
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+    background-color: #fff7fa;
+}
+</string>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>20</y>
+        <width>561</width>
+        <height>521</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="MenuTitle">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+  color: #7b4b5a;
+  background-color: #fffbfd;
+    border: 2px solid #f5e6ec;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; color:#63452c;&quot;&gt;Menu ☰&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="menuListWidget">
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+    background-color: white;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+QListWidget::item:selected {
+    background-color: #fce4ec;
+    color: #7b4b5a;
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Burgers           🍔</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+          <property name="foreground">
+           <brush brushstyle="Dense1Pattern">
+            <color alpha="255">
+             <red>26</red>
+             <green>95</green>
+             <blue>180</blue>
+            </color>
+           </brush>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Pizza        🍕</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+          <property name="foreground">
+           <brush brushstyle="Dense1Pattern">
+            <color alpha="255">
+             <red>26</red>
+             <green>95</green>
+             <blue>180</blue>
+            </color>
+           </brush>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Noodles        🍜</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+          <property name="foreground">
+           <brush brushstyle="Dense1Pattern">
+            <color alpha="255">
+             <red>26</red>
+             <green>95</green>
+             <blue>180</blue>
+            </color>
+           </brush>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cake       🍰</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+          <property name="foreground">
+           <brush brushstyle="Dense1Pattern">
+            <color alpha="255">
+             <red>26</red>
+             <green>95</green>
+             <blue>180</blue>
+            </color>
+           </brush>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="quantitySpinBox">
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+    background-color: white;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+QListWidget::item:selected {
+    background-color: #fce4ec;
+    color: #7b4b5a;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addToOrderButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}</string>
+         </property>
+         <property name="text">
+          <string>Add to Order</string>
+         </property>
+         <property name="autoRepeatDelay">
+          <number>282</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="OrderSummaryTitle">
+         <property name="styleSheet">
+          <string notr="true">color: #7b4b5a;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order Summary&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="orderTextEdit">
+         <property name="styleSheet">
+          <string notr="true">QTextEdit {
+    color: black;
+}</string>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:14pt; font-weight:700; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="submitOrderButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Submit Order</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="backButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #a8d5ba;
+    border: 2px solid #8fc9a8;
+    border-radius: 15px;
+    padding: 8px;
+    font-weight: bold;
+    color: #2f4f4f;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="staffPage">
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>61</y>
+        <width>581</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #fffbfd;
+    border: 2px solid #f5e6ec;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="StaffDashboardTitle">
+           <property name="styleSheet">
+            <string notr="true">color: #7b4b5a;
+font-size: 20pt;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Staff Dashboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="margin">
+            <number>-4</number>
+           </property>
+           <property name="indent">
+            <number>-2</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="styleSheet">
+            <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>Incoming Orders</string>
+           </property>
+           <property name="margin">
+            <number>-14</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="incomingOrdersList">
+           <property name="styleSheet">
+            <string notr="true">QListWidget {
+    background-color: white;
+Color: black;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="bottomMargin">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="pushButton_8">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Order Received</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_7">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Preparing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="completeOrderButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+
+</string>
+             </property>
+             <property name="text">
+              <string>Completed</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="clearOrdersButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Clear </string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="OrderHistoryPage">
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>481</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:  rgb(222, 221, 218);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>481</width>
+         <height>451</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QLabel" name="historyTitleLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order History&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pastOrdersLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;
+</string>
+          </property>
+          <property name="text">
+           <string>Past Orders</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="historyListWidget">
+          <property name="styleSheet">
+           <string notr="true">QListWidget {
+    background-color: white;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="orderDetailsLabel">
+          <property name="text">
+           <string>Order Details</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="historyDetailsBox">
+          <property name="styleSheet">
+           <string notr="true">QTextEdit {
+    background-color: white;
+    color: black;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="orderStatusPage">
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>50</y>
+        <width>501</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #fffbfd;
+    border: 2px solid #f5e6ec;
+    border-radius: 25px;
+    padding: 30px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>491</width>
+         <height>521</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="orderStatusTitle">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="receivedLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #63452c;
+font-size: 22pt;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Order Received&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="preparingLabel_3">
+          <property name="styleSheet">
+           <string notr="true">color: #63452c;
+font-size: 22pt;
+font-weight: bold;
+</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Preparing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="readyLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #63452c;
+font-size: 22pt;
+font-weight: bold;
+</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Ready&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="completedLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #63452c;
+font-size: 22pt;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Completed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="updateStatusButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #6dbf73;
+    color: white;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5aad63;
+}
+
+QPushButton:pressed {
+    background-color: #4c9e57;
+}</string>
+          </property>
+          <property name="text">
+           <string>Update Status</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>835</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
