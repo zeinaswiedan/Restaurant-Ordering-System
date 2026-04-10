@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>835</width>
-    <height>675</height>
+    <width>830</width>
+    <height>792</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,10 +34,10 @@ QPushButton:hover {
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>-10</y>
-      <width>721</width>
-      <height>631</height>
+      <x>20</x>
+      <y>0</y>
+      <width>731</width>
+      <height>671</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -50,7 +50,7 @@ font-weight: bold;
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="welcomePage">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -201,10 +201,10 @@ QPushButton:hover {
      <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>20</y>
-        <width>561</width>
-        <height>521</height>
+        <x>70</x>
+        <y>10</y>
+        <width>611</width>
+        <height>641</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -226,109 +226,219 @@ QPushButton:hover {
        </item>
        <item>
         <widget class="QListWidget" name="menuListWidget">
+         <property name="toolTipDuration">
+          <number>1</number>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
          <property name="styleSheet">
           <string notr="true">QListWidget {
-    background-color: white;
-    border: 2px solid #f3d9e3;
-    border-radius: 15px;
-    padding: 8px;
+    background-color: #F2F2F2;   /* light grey */
+    border: 2px solid #CFCFCF;   /* subtle border */
+    border-radius: 10px;
+    padding: 3px;                /* less outer spacing */
+}
+
+QListWidget::item {
+    text-align: center;
+    padding: 4px;                /* reduced spacing between items */
+    margin: 1px;                 /* minimal gap */
+    font-size: 14px;
+    border-radius: 6px;
 }
 
 QListWidget::item:selected {
-    background-color: #fce4ec;
-    color: #7b4b5a;
+    background-color: #7CFFB2;   /* bright green (matches your theme) */
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: #DFF5E3;   /* soft hover */
 }</string>
+         </property>
+         <property name="autoScrollMargin">
+          <number>12</number>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectItems</enum>
+         </property>
+         <property name="resizeMode">
+          <enum>QListView::Adjust</enum>
+         </property>
+         <property name="itemAlignment">
+          <set>Qt::AlignCenter</set>
          </property>
          <item>
           <property name="text">
-           <string>Burgers           🍔</string>
+           <string>Pasta 🍝
+</string>
           </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
-            <bold>true</bold>
            </font>
           </property>
           <property name="textAlignment">
            <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="Dense1Pattern">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Pizza        🍕</string>
+           <string>Chicken 🍗
+</string>
           </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
-            <bold>true</bold>
            </font>
           </property>
           <property name="textAlignment">
            <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="Dense1Pattern">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Noodles        🍜</string>
+           <string>Fish 🐟
+</string>
           </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
-            <bold>true</bold>
            </font>
           </property>
           <property name="textAlignment">
            <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="Dense1Pattern">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Cake       🍰</string>
+           <string>Meat 🥩
+</string>
           </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
-            <bold>true</bold>
            </font>
           </property>
           <property name="textAlignment">
            <set>AlignCenter</set>
           </property>
-          <property name="foreground">
-           <brush brushstyle="Dense1Pattern">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
+         </item>
+         <item>
+          <property name="text">
+           <string>Shawerma 🌯
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fries 🍟
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Salad 🥗
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Soda 🥤</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Burger 🍔
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Pizza 🍕
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Noodles 🍜
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cake 🍰
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
           </property>
          </item>
         </widget>
@@ -422,6 +532,28 @@ QPushButton:hover {
          </property>
          <property name="text">
           <string>Submit Order</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="checkorderStatus">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Check Order Status</string>
          </property>
         </widget>
        </item>
@@ -529,7 +661,7 @@ Color: black;
             <number>3</number>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButton_8">
+            <widget class="QPushButton" name="viewhistoryButton">
              <property name="styleSheet">
               <string notr="true">QPushButton {
     background-color: #6FCF97;
@@ -546,29 +678,7 @@ QPushButton:hover {
 </string>
              </property>
              <property name="text">
-              <string>Order Received</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_7">
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-</string>
-             </property>
-             <property name="text">
-              <string>Preparing</string>
+              <string>View History</string>
              </property>
             </widget>
            </item>
@@ -591,149 +701,7 @@ QPushButton:hover {
 </string>
              </property>
              <property name="text">
-              <string>Completed</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="clearOrdersButton">
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-QPushButton {
-    background-color: #6FCF97;
-    color: white;
-    border: 2px solid #4CAF50;
-    border-radius: 14px;
-    padding: 12px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #56c58a;
-}
-</string>
-             </property>
-             <property name="text">
-              <string>Clear </string>
+              <string>Complete Order</string>
              </property>
             </widget>
            </item>
@@ -865,7 +833,7 @@ font-weight: bold;
          <x>0</x>
          <y>0</y>
          <width>491</width>
-         <height>521</height>
+         <height>525</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -877,14 +845,14 @@ font-weight: bold;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="receivedLabel">
+         <widget class="QLabel" name="preparingLabel">
           <property name="styleSheet">
            <string notr="true">color: #63452c;
 font-size: 22pt;
 font-weight: bold;</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Order Received&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Preparing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -892,7 +860,7 @@ font-weight: bold;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="preparingLabel_3">
+         <widget class="QLabel" name="cookingLabel">
           <property name="styleSheet">
            <string notr="true">color: #63452c;
 font-size: 22pt;
@@ -900,7 +868,7 @@ font-weight: bold;
 </string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Preparing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Cooking&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -923,46 +891,6 @@ font-weight: bold;
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLabel" name="completedLabel">
-          <property name="styleSheet">
-           <string notr="true">color: #63452c;
-font-size: 22pt;
-font-weight: bold;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Completed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="updateStatusButton">
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    background-color: #6dbf73;
-    color: white;
-    border-radius: 20px;
-    padding: 12px;
-    font-size: 14pt;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #5aad63;
-}
-
-QPushButton:pressed {
-    background-color: #4c9e57;
-}</string>
-          </property>
-          <property name="text">
-           <string>Update Status</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -974,7 +902,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>835</width>
+     <width>830</width>
      <height>23</height>
     </rect>
    </property>
