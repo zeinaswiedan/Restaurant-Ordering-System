@@ -88,7 +88,7 @@ return;
 
 
 
-std::cout << "Order recieved. \n";
+
 
 
 if (quantity <= 0) {
@@ -102,16 +102,6 @@ if (quantity <= 0) {
 return;
 }
 
-
-
-
-
-
-
-
-
-
-
 bool valid = false;
 
 for (const auto& m : menu) {
@@ -122,6 +112,8 @@ break;
 
 order["time"] = (long)time(nullptr);
 orders.push_back(order);
+
+std::cout << "Order recieved. \n";
 
 
 std::cout << "\n ====================== \n";
