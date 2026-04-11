@@ -4,25 +4,12 @@
 #include <ctime>
 #include <boost/asio.hpp>
 #include <vector>
+#include <algorithm>
 #include <unistd.h>
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 using boost::asio::ip::tcp;
-std::vector<std::string> menu ={
-"Burger"
-"Pizza"
-"Noodles"
-"Pasta"
-"Chicken"
-"Fish"
-"Meat"
-"Shawerma"
-"Fries"
-"Salad"
-"Cake"
-"Soda"
-};
 
 int main() {
 	boost::asio::io_context io;
@@ -51,10 +38,79 @@ acceptor.async_accept(*socket, [&, socket](boost::system::error_code ec) {
 	if (!ec) {
 		try {
 		std::string received(buffer->data(), length);
-		json order = json::parse(received);
-		std::cout << "Order recieved. \n";
+		json order;
+	
+		order = json::parse(received); 
+
 std::string item = order["item"];
 int quantity = order["quantity"];
+
+
+std::vector<std::string> menu ={
+"Burger",
+"Pizza",
+"Noodles",
+"Pasta",
+"Chicken",
+"Fish",
+"Meat",
+"Shawerma",
+"Fries",
+"Salad",
+"Cake",
+"Soda",
+"Water"
+};
+
+if (std::find(menu.begin(), menu.end(), item) == menu.end()) {
+
+ json response;
+                response["status"] = "error";
+
+                boost::asio::async_write(*socket,  boost::asio::buffer(response.dump()),
+                [socket](boost::system::error_code ec, std::size_t) {}
+);
+return;
+}
+
+
+if (!order.contains("item") || !order.contains("quantity"))
+ {
+		json response;
+		response["status"] = "error";
+
+		boost::asio::async_write(*socket,  boost::asio::buffer(response.dump()),
+                [socket](boost::system::error_code ec, std::size_t) {}
+);
+return;
+}
+
+
+
+
+std::cout << "Order recieved. \n";
+
+
+if (quantity <= 0) {
+
+		 json response;
+                response["status"] = "error";
+
+                boost::asio::async_write(*socket,  boost::asio::buffer(response.dump()),
+                [socket](boost::system::error_code ec, std::size_t) {}
+);
+return;
+}
+
+
+
+
+
+
+
+
+
+
 
 bool valid = false;
 

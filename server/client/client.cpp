@@ -15,10 +15,21 @@ int main() {
 
 std::cout << "Connected to server!" <<  std::endl;
 
+
+std::string item;
+int quantity;
+
+std::cout << "Enter item: " ;
+std::cin >> item;
+
+std::cout << "Enter quantity: " ;
+std::cin >> quantity;
+
 json order;
-order["type"] = "order";
-order["item"] = "burger";
-order["quantity"] = 2;
+order["item"] = item;
+order["quantity"] = quantity;
+
+
 
 std::string message = order.dump();
 
