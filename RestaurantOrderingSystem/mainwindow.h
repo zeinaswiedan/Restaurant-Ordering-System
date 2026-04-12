@@ -10,7 +10,7 @@
 #include <QDateTime>
 #include <QInputDialog>
 #include <QMessageBox>
-
+#include <QTcpSocket>
 #include <vector>
 #include <nlohmann/json.hpp>
 
@@ -49,6 +49,10 @@ private slots:
     void on_historyListWidget_itemClicked(QListWidgetItem *item);
     void on_viewhistoryButton_clicked();
 
+    //  NETWORKING
+    void onConnected();
+    void onReadyRead();
+
 private:
     Ui::MainWindow *ui;
 
@@ -63,6 +67,9 @@ private:
     // TIME TRACKING
     QMap<QString, QDateTime> orderPlacedTime;
     QMap<QString, QDateTime> orderCompletedTime;
+
+    // NETWORK
+    QTcpSocket *socket;
 
     // HELPER
     QString cleanItemName(const QString &item);

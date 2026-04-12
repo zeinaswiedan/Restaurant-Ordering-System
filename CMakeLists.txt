@@ -86,4 +86,3 @@ add_executable(client server/client/client.cpp)
 target_link_libraries(client ${Boost_LIBRARIES})
 
 
-
