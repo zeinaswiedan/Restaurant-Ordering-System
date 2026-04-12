@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <boost/asio.hpp>
 
 #include <algorithm>
 
@@ -12,14 +11,41 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // TIMER
     statusTimer = new QTimer(this);
     connect(statusTimer, &QTimer::timeout, this, &MainWindow::updateOrderStatus);
+
+    socket = new QTcpSocket(this);
+
+    connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
+    connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
+
+    socket->connectToHost("127.0.0.1", 8080);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// ================= NETWORK =================
+void MainWindow::onConnected()
+{
+    ui->orderTextEdit->append("Connected to server!");
+}
+
+void MainWindow::onReadyRead()
+{
+    QByteArray data = socket->readAll();
+
+    try {
+        json response = json::parse(data.toStdString());
+        QString status = QString::fromStdString(response["status"]);
+
+        ui->orderTextEdit->append("Server Status: " + status);
+    }
+    catch (...) {
+        ui->orderTextEdit->append("Invalid response from server");
+    }
 }
 
 // ================= HELPER =================
@@ -72,43 +98,18 @@ void MainWindow::on_submitOrderButton_clicked()
         return;
     }
 
+
     json order;
     order["item"] = item.toStdString();
     order["quantity"] = quantity;
-    order["time"] = (long)time(nullptr);
 
-    try {
-        boost::asio::io_context io;
-        boost::asio::ip::tcp::socket sock(io);
+    QString message = QString::fromStdString(order.dump());
 
-        boost::asio::ip::tcp::resolver resolver(io);
-        auto endpoints = resolver.resolve("127.0.0.1", "8080");
+    socket->write(message.toUtf8());
 
-        boost::asio::connect(sock, endpoints);
-
-        std::string message = order.dump();
-
-        boost::asio::write(sock, boost::asio::buffer(message));
-
-        char reply[1024];
-        size_t reply_length = sock.read_some(boost::asio::buffer(reply));
-
-        std::string response(reply, reply_length);
-
-        ui->orderTextEdit->append("Server: " + QString::fromStdString(response));
-
-    } catch (...) {
-        ui->orderTextEdit->append("Connection failed!");
-    }
-
-
-
-    orders.push_back(order);
+    ui->orderTextEdit->append("Order sent to server!");
 
     QString displayOrder = rawItem + " x " + QString::number(quantity);
-
-    ui->orderTextEdit->append("Order sent !!! ");
-
 
     orderPlacedTime[displayOrder] = QDateTime::currentDateTime();
 
@@ -160,8 +161,6 @@ void MainWindow::on_staffButton_clicked()
         &ok
         );
 
-
-
     if (!ok || staffID.isEmpty())
         return;
 
@@ -189,7 +188,6 @@ void MainWindow::on_viewhistoryButton_clicked()
 }
 
 // ================= STAFF =================
-
 void MainWindow::on_completeOrderButton_clicked()
 {
     QListWidgetItem *item = ui->incomingOrdersList->currentItem();
@@ -247,7 +245,3 @@ void MainWindow::on_historyListWidget_itemClicked(QListWidgetItem *item)
 
     ui->historyDetailsBox->setText(details);
 }
-
-
-
-
