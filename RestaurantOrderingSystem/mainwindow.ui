@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>912</width>
-    <height>675</height>
+    <width>830</width>
+    <height>792</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,26 +34,32 @@ QPushButton:hover {
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>0</y>
       <width>731</width>
-      <height>501</height>
+      <height>671</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;
+</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="page1">
+    <widget class="QWidget" name="welcomePage">
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
         <x>110</x>
         <y>50</y>
-        <width>531</width>
-        <height>460</height>
+        <width>533</width>
+        <height>480</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -75,7 +81,7 @@ QPushButton:hover {
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="welcomePageTitle">
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
@@ -93,7 +99,7 @@ QPushButton:hover {
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="RestaurantOrderingSystem">
             <property name="styleSheet">
              <string notr="true">QFrame {
     background-color: #fff7fa;
@@ -108,21 +114,22 @@ QPushButton:hover {
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="nameLineEdit">
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     border: 2px solid #cccccc;
+Color: black;
     border-radius: 10px;
     padding: 8px;
 }</string>
             </property>
             <property name="text">
-             <string>Enter your Name........</string>
+             <string>Name:  </string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="customerButton">
             <property name="styleSheet">
              <string notr="true">QPushButton {
     background-color: #6FCF97;
@@ -144,7 +151,7 @@ QPushButton:hover {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="staffButton">
             <property name="styleSheet">
              <string notr="true">QPushButton {
     background-color: #6FCF97;
@@ -165,7 +172,7 @@ QPushButton:hover {
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="pageStatus">
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     border: 2px solid #cccccc;
@@ -184,7 +191,7 @@ QPushButton:hover {
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2">
+    <widget class="QWidget" name="menuPage">
      <property name="styleSheet">
       <string notr="true">QWidget {
     background-color: #fff7fa;
@@ -194,15 +201,15 @@ QPushButton:hover {
      <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>20</y>
-        <width>601</width>
-        <height>491</height>
+        <x>70</x>
+        <y>10</y>
+        <width>611</width>
+        <height>641</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="MenuTitle">
          <property name="styleSheet">
           <string notr="true">QFrame {
   color: #7b4b5a;
@@ -218,7 +225,226 @@ QPushButton:hover {
         </widget>
        </item>
        <item>
-        <widget class="QListWidget" name="listWidget">
+        <widget class="QListWidget" name="menuListWidget">
+         <property name="toolTipDuration">
+          <number>1</number>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget {
+    background-color: #F2F2F2;   /* light grey */
+    border: 2px solid #CFCFCF;   /* subtle border */
+    border-radius: 10px;
+    padding: 3px;                /* less outer spacing */
+}
+
+QListWidget::item {
+    text-align: center;
+    padding: 4px;                /* reduced spacing between items */
+    margin: 1px;                 /* minimal gap */
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+QListWidget::item:selected {
+    background-color: #7CFFB2;   /* bright green (matches your theme) */
+    color: black;
+}
+
+QListWidget::item:hover {
+    background-color: #DFF5E3;   /* soft hover */
+}</string>
+         </property>
+         <property name="autoScrollMargin">
+          <number>12</number>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectItems</enum>
+         </property>
+         <property name="resizeMode">
+          <enum>QListView::Adjust</enum>
+         </property>
+         <property name="itemAlignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <item>
+          <property name="text">
+           <string>Pasta 🍝
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Chicken 🍗
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fish 🐟
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Meat 🥩
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Shawerma 🌯
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fries 🍟
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Salad 🥗
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Soda 🥤</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Burger 🍔
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Pizza 🍕
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Noodles 🍜
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cake 🍰
+</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="textAlignment">
+           <set>AlignCenter</set>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="quantitySpinBox">
          <property name="styleSheet">
           <string notr="true">QListWidget {
     background-color: white;
@@ -232,134 +458,10 @@ QListWidget::item:selected {
     color: #7b4b5a;
 }</string>
          </property>
-         <item>
-          <property name="text">
-           <string>Burgers  🍔</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Pizza 🍕</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="Dense1Pattern">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Noodles 🍜</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Cake 🍰</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="textAlignment">
-           <set>AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>26</red>
-             <green>95</green>
-             <blue>180</blue>
-            </color>
-           </brush>
-          </property>
-         </item>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBox">
-         <property name="styleSheet">
-          <string notr="true">QListWidget {
-    background-color: white;
-    border: 2px solid #f3d9e3;
-    border-radius: 15px;
-    padding: 8px;
-}
-
-QListWidget::item:selected {
-    background-color: #fce4ec;
-    color: #7b4b5a;
-}</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="addToOrderButton">
          <property name="styleSheet">
           <string notr="true">QPushButton {
     background-color: #6FCF97;
@@ -377,10 +479,13 @@ QPushButton:hover {
          <property name="text">
           <string>Add to Order</string>
          </property>
+         <property name="autoRepeatDelay">
+          <number>282</number>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="OrderSummaryTitle">
          <property name="styleSheet">
           <string notr="true">color: #7b4b5a;</string>
          </property>
@@ -390,13 +495,10 @@ QPushButton:hover {
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit">
+        <widget class="QTextEdit" name="orderTextEdit">
          <property name="styleSheet">
           <string notr="true">QTextEdit {
-    background-color: white;
-    border: 2px solid #f3d9e3;
-    border-radius: 15px;
-    padding: 10px;
+    color: black;
 }</string>
          </property>
          <property name="html">
@@ -406,13 +508,13 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:14pt; font-weight:700; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="submitOrderButton">
          <property name="styleSheet">
           <string notr="true">QPushButton {
     background-color: #6FCF97;
@@ -433,17 +535,282 @@ QPushButton:hover {
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="checkorderStatus">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Check Order Status</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="backButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #a8d5ba;
+    border: 2px solid #8fc9a8;
+    border-radius: 15px;
+    padding: 8px;
+    font-weight: bold;
+    color: #2f4f4f;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="staffPage">
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>61</y>
+        <width>581</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #fffbfd;
+    border: 2px solid #f5e6ec;
+    border-radius: 25px;
+    padding: 20px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="StaffDashboardTitle">
+           <property name="styleSheet">
+            <string notr="true">color: #7b4b5a;
+font-size: 20pt;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Staff Dashboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="margin">
+            <number>-4</number>
+           </property>
+           <property name="indent">
+            <number>-2</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="styleSheet">
+            <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>Incoming Orders</string>
+           </property>
+           <property name="margin">
+            <number>-14</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="incomingOrdersList">
+           <property name="styleSheet">
+            <string notr="true">QListWidget {
+    background-color: white;
+Color: black;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="bottomMargin">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="viewhistoryButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+</string>
+             </property>
+             <property name="text">
+              <string>View History</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="completeOrderButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #6FCF97;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #56c58a;
+}
+
+</string>
+             </property>
+             <property name="text">
+              <string>Complete Order</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="OrderHistoryPage">
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>481</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:  rgb(222, 221, 218);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>481</width>
+         <height>451</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QLabel" name="historyTitleLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order History&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pastOrdersLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #7b4b5a;
+font-size: 14pt;
+font-weight: bold;
+</string>
+          </property>
+          <property name="text">
+           <string>Past Orders</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="historyListWidget">
+          <property name="styleSheet">
+           <string notr="true">QListWidget {
+    background-color: white;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="orderDetailsLabel">
+          <property name="text">
+           <string>Order Details</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="historyDetailsBox">
+          <property name="styleSheet">
+           <string notr="true">QTextEdit {
+    background-color: white;
+    color: black;
+    border: 2px solid #f3d9e3;
+    border-radius: 15px;
+    padding: 10px;
+}</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="orderStatusPage">
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>-40</y>
+        <x>130</x>
+        <y>50</y>
         <width>501</width>
-        <height>561</height>
+        <height>541</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -465,40 +832,24 @@ QPushButton:hover {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>501</width>
-         <height>541</height>
+         <width>491</width>
+         <height>525</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QLabel" name="preparingLabel">
+         <widget class="QLabel" name="orderStatusTitle">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_received">
+         <widget class="QLabel" name="preparingLabel">
           <property name="styleSheet">
            <string notr="true">color: #63452c;
 font-size: 22pt;
 font-weight: bold;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Order Received&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_preparing">
-          <property name="styleSheet">
-           <string notr="true">color: #63452c;
-font-size: 22pt;
-font-weight: bold;
-</string>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Preparing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -509,7 +860,23 @@ font-weight: bold;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_ready">
+         <widget class="QLabel" name="cookingLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #63452c;
+font-size: 22pt;
+font-weight: bold;
+</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Cooking&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="readyLabel">
           <property name="styleSheet">
            <string notr="true">color: #63452c;
 font-size: 22pt;
@@ -524,46 +891,6 @@ font-weight: bold;
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLabel" name="label_completed">
-          <property name="styleSheet">
-           <string notr="true">color: #63452c;
-font-size: 22pt;
-font-weight: bold;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Completed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    background-color: #6dbf73;
-    color: white;
-    border-radius: 20px;
-    padding: 12px;
-    font-size: 14pt;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #5aad63;
-}
-
-QPushButton:pressed {
-    background-color: #4c9e57;
-}</string>
-          </property>
-          <property name="text">
-           <string>Update Status</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -575,7 +902,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>912</width>
+     <width>830</width>
      <height>23</height>
     </rect>
    </property>

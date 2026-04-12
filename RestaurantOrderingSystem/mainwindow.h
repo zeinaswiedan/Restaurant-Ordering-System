@@ -2,6 +2,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QString>
+#include <QListWidgetItem>
+#include <QTimer>
+#include <QTime>
+#include <QMap>
+#include <QDateTime>
+#include <QInputDialog>
+#include <QMessageBox>
+
+#include <vector>
+#include <nlohmann/json.hpp>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,17 +25,47 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void on_pushButton_3_clicked();
+    // MENU
+    void on_addToOrderButton_clicked();
+    void on_submitOrderButton_clicked();
 
-    void on_pushButton_4_clicked();
+    // STATUS (automatic)
+    void updateOrderStatus();
 
-    void on_pushButton_5_clicked();
+    // NAVIGATION
+    void on_customerButton_clicked();
+    void on_staffButton_clicked();
+    void on_backButton_clicked();
+    void on_checkorderStatus_clicked();
+
+    // STAFF
+    void on_completeOrderButton_clicked();
+
+    // HISTORY
+    void on_historyListWidget_itemClicked(QListWidgetItem *item);
+    void on_viewhistoryButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+
+    QString currentOrder;
+
+    std::vector<nlohmann::json> orders;
+
+    // TIMER SYSTEM
+    QTimer *statusTimer;
+    QTime orderStartTime;
+
+    // TIME TRACKING
+    QMap<QString, QDateTime> orderPlacedTime;
+    QMap<QString, QDateTime> orderCompletedTime;
+
+    // HELPER
+    QString cleanItemName(const QString &item);
 };
+
 #endif // MAINWINDOW_H
