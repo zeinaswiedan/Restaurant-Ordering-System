@@ -1,0 +1,4 @@
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/server.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/client.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/edit_cache.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/rebuild_cache.dir
