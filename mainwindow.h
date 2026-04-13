@@ -10,7 +10,7 @@
 #include <QDateTime>
 #include <QInputDialog>
 #include <QMessageBox>
-
+#include <QTcpSocket>
 #include <vector>
 #include <nlohmann/json.hpp>
 
