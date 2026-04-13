@@ -11,14 +11,41 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // TIMER
     statusTimer = new QTimer(this);
     connect(statusTimer, &QTimer::timeout, this, &MainWindow::updateOrderStatus);
+
+    socket = new QTcpSocket(this);
+
+    connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
+    connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
+
+    socket->connectToHost("127.0.0.1", 8080);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// ================= NETWORK =================
+void MainWindow::onConnected()
+{
+    ui->orderTextEdit->append("Connected to server!");
+}
+
+void MainWindow::onReadyRead()
+{
+    QByteArray data = socket->readAll();
+
+    try {
+        json response = json::parse(data.toStdString());
+        QString status = QString::fromStdString(response["status"]);
+
+        ui->orderTextEdit->append("Server Status: " + status);
+    }
+    catch (...) {
+        ui->orderTextEdit->append("Invalid response from server");
+    }
 }
 
 // ================= HELPER =================
@@ -71,17 +98,18 @@ void MainWindow::on_submitOrderButton_clicked()
         return;
     }
 
+
     json order;
     order["item"] = item.toStdString();
     order["quantity"] = quantity;
-    order["time"] = (long)time(nullptr);
 
-    orders.push_back(order);
+    QString message = QString::fromStdString(order.dump());
+
+    socket->write(message.toUtf8());
+
+    ui->orderTextEdit->append("Order sent to server!");
 
     QString displayOrder = rawItem + " x " + QString::number(quantity);
-
-    ui->orderTextEdit->append("Order sent !!! ");
-
 
     orderPlacedTime[displayOrder] = QDateTime::currentDateTime();
 
@@ -154,14 +182,12 @@ void MainWindow::on_checkorderStatus_clicked()
     ui->stackedWidget->setCurrentWidget(ui->orderStatusPage);
 }
 
-// ✅ NEW: VIEW HISTORY BUTTON
 void MainWindow::on_viewhistoryButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->OrderHistoryPage);
 }
 
 // ================= STAFF =================
-
 void MainWindow::on_completeOrderButton_clicked()
 {
     QListWidgetItem *item = ui->incomingOrdersList->currentItem();
