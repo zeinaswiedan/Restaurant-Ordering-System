@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QtNetwork/QTcpSocket>
+#include <QRegularExpression> 
 
 #include <algorithm>
 
@@ -20,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
 
     socket->connectToHost("127.0.0.1", 8080);
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
+
 }
 
 MainWindow::~MainWindow()
@@ -52,7 +56,7 @@ void MainWindow::onReadyRead()
 QString MainWindow::cleanItemName(const QString &item)
 {
     QString clean = item;
-    clean.remove(QRegExp("[^a-zA-Z]"));
+    clean.remove(QRegularExpression("[^a-zA-Z]"));
     return clean;
 }
 
