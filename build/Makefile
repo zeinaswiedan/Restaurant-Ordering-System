@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zeina/Restaurant-Ordering-System/build/CMakeFiles /home/zeina/Restaurant-Ordering-System/build//CMakeFiles/progress.marks
@@ -117,6 +162,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named RestaurantOrderingSystem
+
+# Build rule for target.
+RestaurantOrderingSystem: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RestaurantOrderingSystem
+.PHONY : RestaurantOrderingSystem
+
+# fast build rule for target.
+RestaurantOrderingSystem/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/build
+.PHONY : RestaurantOrderingSystem/fast
+
+#=============================================================================
 # Target rules for targets named server
 
 # Build rule for target.
@@ -141,6 +199,180 @@ client: cmake_check_build_system
 client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
 .PHONY : client/fast
+
+#=============================================================================
+# Target rules for targets named RestaurantOrderingSystem_autogen_timestamp_deps
+
+# Build rule for target.
+RestaurantOrderingSystem_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RestaurantOrderingSystem_autogen_timestamp_deps
+.PHONY : RestaurantOrderingSystem_autogen_timestamp_deps
+
+# fast build rule for target.
+RestaurantOrderingSystem_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem_autogen_timestamp_deps.dir/build.make CMakeFiles/RestaurantOrderingSystem_autogen_timestamp_deps.dir/build
+.PHONY : RestaurantOrderingSystem_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named RestaurantOrderingSystem_autogen
+
+# Build rule for target.
+RestaurantOrderingSystem_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RestaurantOrderingSystem_autogen
+.PHONY : RestaurantOrderingSystem_autogen
+
+# fast build rule for target.
+RestaurantOrderingSystem_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem_autogen.dir/build.make CMakeFiles/RestaurantOrderingSystem_autogen.dir/build
+.PHONY : RestaurantOrderingSystem_autogen/fast
+
+#=============================================================================
+# Target rules for targets named server_autogen_timestamp_deps
+
+# Build rule for target.
+server_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server_autogen_timestamp_deps
+.PHONY : server_autogen_timestamp_deps
+
+# fast build rule for target.
+server_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_autogen_timestamp_deps.dir/build.make CMakeFiles/server_autogen_timestamp_deps.dir/build
+.PHONY : server_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named server_autogen
+
+# Build rule for target.
+server_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server_autogen
+.PHONY : server_autogen
+
+# fast build rule for target.
+server_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_autogen.dir/build.make CMakeFiles/server_autogen.dir/build
+.PHONY : server_autogen/fast
+
+#=============================================================================
+# Target rules for targets named client_autogen_timestamp_deps
+
+# Build rule for target.
+client_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client_autogen_timestamp_deps
+.PHONY : client_autogen_timestamp_deps
+
+# fast build rule for target.
+client_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen_timestamp_deps.dir/build.make CMakeFiles/client_autogen_timestamp_deps.dir/build
+.PHONY : client_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named client_autogen
+
+# Build rule for target.
+client_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client_autogen
+.PHONY : client_autogen
+
+# fast build rule for target.
+client_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen.dir/build.make CMakeFiles/client_autogen.dir/build
+.PHONY : client_autogen/fast
+
+RestaurantOrderingSystem_autogen/mocs_compilation.o: RestaurantOrderingSystem_autogen/mocs_compilation.cpp.o
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.o
+
+# target to build an object file
+RestaurantOrderingSystem_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/RestaurantOrderingSystem_autogen/mocs_compilation.cpp.o
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.cpp.o
+
+RestaurantOrderingSystem_autogen/mocs_compilation.i: RestaurantOrderingSystem_autogen/mocs_compilation.cpp.i
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+RestaurantOrderingSystem_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/RestaurantOrderingSystem_autogen/mocs_compilation.cpp.i
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.cpp.i
+
+RestaurantOrderingSystem_autogen/mocs_compilation.s: RestaurantOrderingSystem_autogen/mocs_compilation.cpp.s
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+RestaurantOrderingSystem_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/RestaurantOrderingSystem_autogen/mocs_compilation.cpp.s
+.PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.cpp.s
+
+client_autogen/mocs_compilation.o: client_autogen/mocs_compilation.cpp.o
+.PHONY : client_autogen/mocs_compilation.o
+
+# target to build an object file
+client_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o
+.PHONY : client_autogen/mocs_compilation.cpp.o
+
+client_autogen/mocs_compilation.i: client_autogen/mocs_compilation.cpp.i
+.PHONY : client_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+client_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.i
+.PHONY : client_autogen/mocs_compilation.cpp.i
+
+client_autogen/mocs_compilation.s: client_autogen/mocs_compilation.cpp.s
+.PHONY : client_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+client_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.s
+.PHONY : client_autogen/mocs_compilation.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+mainwindow.o: mainwindow.cpp.o
+.PHONY : mainwindow.o
+
+# target to build an object file
+mainwindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/mainwindow.cpp.o
+.PHONY : mainwindow.cpp.o
+
+mainwindow.i: mainwindow.cpp.i
+.PHONY : mainwindow.i
+
+# target to preprocess a source file
+mainwindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/mainwindow.cpp.i
+.PHONY : mainwindow.cpp.i
+
+mainwindow.s: mainwindow.cpp.s
+.PHONY : mainwindow.s
+
+# target to generate assembly for a file
+mainwindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/mainwindow.cpp.s
+.PHONY : mainwindow.cpp.s
 
 server/client/client.o: server/client/client.cpp.o
 .PHONY : server/client/client.o
@@ -190,6 +422,30 @@ server/server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server/server.cpp.s
 .PHONY : server/server.cpp.s
 
+server_autogen/mocs_compilation.o: server_autogen/mocs_compilation.cpp.o
+.PHONY : server_autogen/mocs_compilation.o
+
+# target to build an object file
+server_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o
+.PHONY : server_autogen/mocs_compilation.cpp.o
+
+server_autogen/mocs_compilation.i: server_autogen/mocs_compilation.cpp.i
+.PHONY : server_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+server_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.i
+.PHONY : server_autogen/mocs_compilation.cpp.i
+
+server_autogen/mocs_compilation.s: server_autogen/mocs_compilation.cpp.s
+.PHONY : server_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+server_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s
+.PHONY : server_autogen/mocs_compilation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,15 +453,41 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... RestaurantOrderingSystem_autogen"
+	@echo "... RestaurantOrderingSystem_autogen_timestamp_deps"
+	@echo "... client_autogen"
+	@echo "... client_autogen_timestamp_deps"
+	@echo "... server_autogen"
+	@echo "... server_autogen_timestamp_deps"
+	@echo "... RestaurantOrderingSystem"
 	@echo "... client"
 	@echo "... server"
+	@echo "... RestaurantOrderingSystem_autogen/mocs_compilation.o"
+	@echo "... RestaurantOrderingSystem_autogen/mocs_compilation.i"
+	@echo "... RestaurantOrderingSystem_autogen/mocs_compilation.s"
+	@echo "... client_autogen/mocs_compilation.o"
+	@echo "... client_autogen/mocs_compilation.i"
+	@echo "... client_autogen/mocs_compilation.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... mainwindow.o"
+	@echo "... mainwindow.i"
+	@echo "... mainwindow.s"
 	@echo "... server/client/client.o"
 	@echo "... server/client/client.i"
 	@echo "... server/client/client.s"
 	@echo "... server/server.o"
 	@echo "... server/server.i"
 	@echo "... server/server.s"
+	@echo "... server_autogen/mocs_compilation.o"
+	@echo "... server_autogen/mocs_compilation.i"
+	@echo "... server_autogen/mocs_compilation.s"
 .PHONY : help
 
 

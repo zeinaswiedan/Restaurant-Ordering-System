@@ -1,4 +1,15 @@
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/RestaurantOrderingSystem.dir
 /home/zeina/Restaurant-Ordering-System/build/CMakeFiles/server.dir
 /home/zeina/Restaurant-Ordering-System/build/CMakeFiles/client.dir
 /home/zeina/Restaurant-Ordering-System/build/CMakeFiles/edit_cache.dir
 /home/zeina/Restaurant-Ordering-System/build/CMakeFiles/rebuild_cache.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/list_install_components.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/install.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/install/local.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/install/strip.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/RestaurantOrderingSystem_autogen_timestamp_deps.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/RestaurantOrderingSystem_autogen.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/server_autogen_timestamp_deps.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/server_autogen.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/client_autogen_timestamp_deps.dir
+/home/zeina/Restaurant-Ordering-System/build/CMakeFiles/client_autogen.dir

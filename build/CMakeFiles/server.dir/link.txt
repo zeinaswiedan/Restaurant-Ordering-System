@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/server.dir/link.d CMakeFiles/server.dir/server/server.cpp.o -o server  /usr/lib/aarch64-linux-gnu/libboost_system.so.1.88.0
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/server.dir/link.d CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o CMakeFiles/server.dir/server/server.cpp.o -o server  /usr/lib/aarch64-linux-gnu/libboost_system.so.1.88.0

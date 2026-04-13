@@ -2,6 +2,7 @@ client: \
   /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/crti.o \
   /usr/lib/gcc/aarch64-linux-gnu/15/crtbeginS.o \
+  CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o \
   CMakeFiles/client.dir/server/client/client.cpp.o \
   /usr/lib/aarch64-linux-gnu/libboost_system.so.1.88.0 \
   /usr/lib/gcc/aarch64-linux-gnu/15/libstdc++.so \
@@ -37,6 +38,8 @@ client: \
 /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/crti.o:
 
 /usr/lib/gcc/aarch64-linux-gnu/15/crtbeginS.o:
+
+CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o:
 
 CMakeFiles/client.dir/server/client/client.cpp.o:
 

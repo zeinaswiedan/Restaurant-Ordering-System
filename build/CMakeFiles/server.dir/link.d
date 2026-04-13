@@ -2,6 +2,7 @@ server: \
   /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/crti.o \
   /usr/lib/gcc/aarch64-linux-gnu/15/crtbeginS.o \
+  CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o \
   CMakeFiles/server.dir/server/server.cpp.o \
   /usr/lib/aarch64-linux-gnu/libboost_system.so.1.88.0 \
   /usr/lib/gcc/aarch64-linux-gnu/15/libstdc++.so \
@@ -37,6 +38,8 @@ server: \
 /usr/lib/gcc/aarch64-linux-gnu/15/../../../aarch64-linux-gnu/crti.o:
 
 /usr/lib/gcc/aarch64-linux-gnu/15/crtbeginS.o:
+
+CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o:
 
 CMakeFiles/server.dir/server/server.cpp.o:
 

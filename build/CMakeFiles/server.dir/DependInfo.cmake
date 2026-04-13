@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "server_autogen/timestamp" "custom" "server_autogen/deps"
   "/home/zeina/Restaurant-Ordering-System/server/server.cpp" "CMakeFiles/server.dir/server/server.cpp.o" "gcc" "CMakeFiles/server.dir/server/server.cpp.o.d"
+  "/home/zeina/Restaurant-Ordering-System/build/server_autogen/mocs_compilation.cpp" "CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o.d"
   "" "server" "gcc" "CMakeFiles/server.dir/link.d"
   )
 
