@@ -88,3 +88,44 @@ add_executable(client server/client/client.cpp)
 target_link_libraries(client ${Boost_LIBRARIES})
 
 
+enable_testing()
+
+add_executable(runTests
+    tests/test_basic.cpp
+)
+
+target_link_libraries(runTests
+    gtest
+    gtest_main
+    gmock
+    pthread
+)
+
+add_test(NAME runTests COMMAND runTests)
+# Enable testing
+enable_testing()
+
+# Fetch GoogleTest
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+# Test executable
+add_executable(runTests
+    tests/test_json.cpp
+    tests/test_network_mock.cpp
+    tests/test_edge_cases.cpp
+)
+
+target_link_libraries(runTests
+    gtest
+    gtest_main
+    gmock
+    pthread
+)
+
+add_test(NAME runTests COMMAND runTests)
+
