@@ -88,20 +88,7 @@ add_executable(client server/client/client.cpp)
 target_link_libraries(client ${Boost_LIBRARIES})
 
 
-enable_testing()
 
-add_executable(runTests
-    tests/test_basic.cpp
-)
-
-target_link_libraries(runTests
-    gtest
-    gtest_main
-    gmock
-    pthread
-)
-
-add_test(NAME runTests COMMAND runTests)
 # Enable testing
 enable_testing()
 

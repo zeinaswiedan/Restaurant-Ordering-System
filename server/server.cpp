@@ -96,7 +96,7 @@ if (quantity <= 0) {
 		 json response;
                 response["status"] = "error";
 
-                boost::asio::async_write(*socket,  boost::asio::buffer(response.dump()),
+                boost::asio::async_write(*socket,  boost::asio::buffer(response.dump() + "\n"),
                 [socket](boost::system::error_code ec, std::size_t) {}
 );
 return;

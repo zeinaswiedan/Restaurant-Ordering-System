@@ -69,8 +69,8 @@ include CMakeFiles/server.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/server.dir/flags.make
 
-server_autogen/timestamp: /usr/lib/qt6/libexec/moc
-server_autogen/timestamp: /usr/lib/qt6/libexec/uic
+server_autogen/timestamp: /usr/lib/qt5/bin/moc
+server_autogen/timestamp: /usr/lib/qt5/bin/uic
 server_autogen/timestamp: CMakeFiles/server.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/zeina/Restaurant-Ordering-System/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target server"
 	/usr/bin/cmake -E cmake_autogen /home/zeina/Restaurant-Ordering-System/build/CMakeFiles/server_autogen.dir/AutogenInfo.json ""

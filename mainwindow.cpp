@@ -39,16 +39,18 @@ void MainWindow::onConnected()
 
 void MainWindow::onReadyRead()
 {
-    QByteArray data = socket->readAll();
+    static QByteArray buffer;
+buffer.append(socket->readAll());
 
     try {
-        json response = json::parse(data.toStdString());
+        json response = json::parse(buffer.toStdString());
         QString status = QString::fromStdString(response["status"]);
 
         ui->orderTextEdit->append("Server Status: " + status);
-    }
+buffer.clear();  
+  }
     catch (...) {
-        ui->orderTextEdit->append("Invalid response from server");
+        
     }
 }
 

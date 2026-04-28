@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/zeina/Restaurant-Ordering-System/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -87,7 +97,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"gmock\" \"gtest\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -201,6 +211,19 @@ client/fast:
 .PHONY : client/fast
 
 #=============================================================================
+# Target rules for targets named runTests
+
+# Build rule for target.
+runTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runTests
+.PHONY : runTests
+
+# fast build rule for target.
+runTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/build
+.PHONY : runTests/fast
+
+#=============================================================================
 # Target rules for targets named RestaurantOrderingSystem_autogen_timestamp_deps
 
 # Build rule for target.
@@ -277,6 +300,188 @@ client_autogen: cmake_check_build_system
 client_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_autogen.dir/build.make CMakeFiles/client_autogen.dir/build
 .PHONY : client_autogen/fast
+
+#=============================================================================
+# Target rules for targets named runTests_autogen_timestamp_deps
+
+# Build rule for target.
+runTests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runTests_autogen_timestamp_deps
+.PHONY : runTests_autogen_timestamp_deps
+
+# fast build rule for target.
+runTests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests_autogen_timestamp_deps.dir/build.make CMakeFiles/runTests_autogen_timestamp_deps.dir/build
+.PHONY : runTests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named runTests_autogen
+
+# Build rule for target.
+runTests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runTests_autogen
+.PHONY : runTests_autogen
+
+# fast build rule for target.
+runTests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests_autogen.dir/build.make CMakeFiles/runTests_autogen.dir/build
+.PHONY : runTests_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock_autogen_timestamp_deps
+
+# Build rule for target.
+gmock_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_autogen_timestamp_deps
+.PHONY : gmock_autogen_timestamp_deps
+
+# fast build rule for target.
+gmock_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen_timestamp_deps.dir/build
+.PHONY : gmock_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gmock_autogen
+
+# Build rule for target.
+gmock_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_autogen
+.PHONY : gmock_autogen
+
+# fast build rule for target.
+gmock_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_autogen.dir/build
+.PHONY : gmock_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main_autogen_timestamp_deps
+
+# Build rule for target.
+gmock_main_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main_autogen_timestamp_deps
+.PHONY : gmock_main_autogen_timestamp_deps
+
+# fast build rule for target.
+gmock_main_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen_timestamp_deps.dir/build
+.PHONY : gmock_main_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main_autogen
+
+# Build rule for target.
+gmock_main_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main_autogen
+.PHONY : gmock_main_autogen
+
+# fast build rule for target.
+gmock_main_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main_autogen.dir/build
+.PHONY : gmock_main_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest_autogen_timestamp_deps
+
+# Build rule for target.
+gtest_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_autogen_timestamp_deps
+.PHONY : gtest_autogen_timestamp_deps
+
+# fast build rule for target.
+gtest_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_autogen_timestamp_deps.dir/build
+.PHONY : gtest_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gtest_autogen
+
+# Build rule for target.
+gtest_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_autogen
+.PHONY : gtest_autogen
+
+# fast build rule for target.
+gtest_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_autogen.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_autogen.dir/build
+.PHONY : gtest_autogen/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main_autogen_timestamp_deps
+
+# Build rule for target.
+gtest_main_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main_autogen_timestamp_deps
+.PHONY : gtest_main_autogen_timestamp_deps
+
+# fast build rule for target.
+gtest_main_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen_timestamp_deps.dir/build
+.PHONY : gtest_main_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main_autogen
+
+# Build rule for target.
+gtest_main_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main_autogen
+.PHONY : gtest_main_autogen
+
+# fast build rule for target.
+gtest_main_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main_autogen.dir/build
+.PHONY : gtest_main_autogen/fast
 
 RestaurantOrderingSystem_autogen/mocs_compilation.o: RestaurantOrderingSystem_autogen/mocs_compilation.cpp.o
 .PHONY : RestaurantOrderingSystem_autogen/mocs_compilation.o
@@ -374,6 +579,30 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RestaurantOrderingSystem.dir/build.make CMakeFiles/RestaurantOrderingSystem.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+runTests_autogen/mocs_compilation.o: runTests_autogen/mocs_compilation.cpp.o
+.PHONY : runTests_autogen/mocs_compilation.o
+
+# target to build an object file
+runTests_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/runTests_autogen/mocs_compilation.cpp.o
+.PHONY : runTests_autogen/mocs_compilation.cpp.o
+
+runTests_autogen/mocs_compilation.i: runTests_autogen/mocs_compilation.cpp.i
+.PHONY : runTests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+runTests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/runTests_autogen/mocs_compilation.cpp.i
+.PHONY : runTests_autogen/mocs_compilation.cpp.i
+
+runTests_autogen/mocs_compilation.s: runTests_autogen/mocs_compilation.cpp.s
+.PHONY : runTests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+runTests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/runTests_autogen/mocs_compilation.cpp.s
+.PHONY : runTests_autogen/mocs_compilation.cpp.s
+
 server/client/client.o: server/client/client.cpp.o
 .PHONY : server/client/client.o
 
@@ -446,6 +675,78 @@ server_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.s
 .PHONY : server_autogen/mocs_compilation.cpp.s
 
+tests/test_edge_cases.o: tests/test_edge_cases.cpp.o
+.PHONY : tests/test_edge_cases.o
+
+# target to build an object file
+tests/test_edge_cases.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_edge_cases.cpp.o
+.PHONY : tests/test_edge_cases.cpp.o
+
+tests/test_edge_cases.i: tests/test_edge_cases.cpp.i
+.PHONY : tests/test_edge_cases.i
+
+# target to preprocess a source file
+tests/test_edge_cases.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_edge_cases.cpp.i
+.PHONY : tests/test_edge_cases.cpp.i
+
+tests/test_edge_cases.s: tests/test_edge_cases.cpp.s
+.PHONY : tests/test_edge_cases.s
+
+# target to generate assembly for a file
+tests/test_edge_cases.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_edge_cases.cpp.s
+.PHONY : tests/test_edge_cases.cpp.s
+
+tests/test_json.o: tests/test_json.cpp.o
+.PHONY : tests/test_json.o
+
+# target to build an object file
+tests/test_json.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_json.cpp.o
+.PHONY : tests/test_json.cpp.o
+
+tests/test_json.i: tests/test_json.cpp.i
+.PHONY : tests/test_json.i
+
+# target to preprocess a source file
+tests/test_json.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_json.cpp.i
+.PHONY : tests/test_json.cpp.i
+
+tests/test_json.s: tests/test_json.cpp.s
+.PHONY : tests/test_json.s
+
+# target to generate assembly for a file
+tests/test_json.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_json.cpp.s
+.PHONY : tests/test_json.cpp.s
+
+tests/test_network_mock.o: tests/test_network_mock.cpp.o
+.PHONY : tests/test_network_mock.o
+
+# target to build an object file
+tests/test_network_mock.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_network_mock.cpp.o
+.PHONY : tests/test_network_mock.cpp.o
+
+tests/test_network_mock.i: tests/test_network_mock.cpp.i
+.PHONY : tests/test_network_mock.i
+
+# target to preprocess a source file
+tests/test_network_mock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_network_mock.cpp.i
+.PHONY : tests/test_network_mock.cpp.i
+
+tests/test_network_mock.s: tests/test_network_mock.cpp.s
+.PHONY : tests/test_network_mock.s
+
+# target to generate assembly for a file
+tests/test_network_mock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/tests/test_network_mock.cpp.s
+.PHONY : tests/test_network_mock.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -458,14 +759,30 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... RestaurantOrderingSystem_autogen"
 	@echo "... RestaurantOrderingSystem_autogen_timestamp_deps"
 	@echo "... client_autogen"
 	@echo "... client_autogen_timestamp_deps"
+	@echo "... gmock_autogen"
+	@echo "... gmock_autogen_timestamp_deps"
+	@echo "... gmock_main_autogen"
+	@echo "... gmock_main_autogen_timestamp_deps"
+	@echo "... gtest_autogen"
+	@echo "... gtest_autogen_timestamp_deps"
+	@echo "... gtest_main_autogen"
+	@echo "... gtest_main_autogen_timestamp_deps"
+	@echo "... runTests_autogen"
+	@echo "... runTests_autogen_timestamp_deps"
 	@echo "... server_autogen"
 	@echo "... server_autogen_timestamp_deps"
 	@echo "... RestaurantOrderingSystem"
 	@echo "... client"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
+	@echo "... runTests"
 	@echo "... server"
 	@echo "... RestaurantOrderingSystem_autogen/mocs_compilation.o"
 	@echo "... RestaurantOrderingSystem_autogen/mocs_compilation.i"
@@ -479,6 +796,9 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
+	@echo "... runTests_autogen/mocs_compilation.o"
+	@echo "... runTests_autogen/mocs_compilation.i"
+	@echo "... runTests_autogen/mocs_compilation.s"
 	@echo "... server/client/client.o"
 	@echo "... server/client/client.i"
 	@echo "... server/client/client.s"
@@ -488,6 +808,15 @@ help:
 	@echo "... server_autogen/mocs_compilation.o"
 	@echo "... server_autogen/mocs_compilation.i"
 	@echo "... server_autogen/mocs_compilation.s"
+	@echo "... tests/test_edge_cases.o"
+	@echo "... tests/test_edge_cases.i"
+	@echo "... tests/test_edge_cases.s"
+	@echo "... tests/test_json.o"
+	@echo "... tests/test_json.i"
+	@echo "... tests/test_json.s"
+	@echo "... tests/test_network_mock.o"
+	@echo "... tests/test_network_mock.i"
+	@echo "... tests/test_network_mock.s"
 .PHONY : help
 
 
