@@ -83,25 +83,14 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(server server/server.cpp)
 target_link_libraries(server ${Boost_LIBRARIES} )
-
 add_executable(client server/client/client.cpp)
 target_link_libraries(client ${Boost_LIBRARIES})
 
 
-
-# Enable testing
 enable_testing()
 
-# Fetch GoogleTest
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/heads/main.zip
-)
-FetchContent_MakeAvailable(googletest)
-
-# Test executable
 add_executable(runTests
+    tests/test_basic.cpp
     tests/test_json.cpp
     tests/test_network_mock.cpp
     tests/test_edge_cases.cpp
@@ -115,4 +104,3 @@ target_link_libraries(runTests
 )
 
 add_test(NAME runTests COMMAND runTests)
-
