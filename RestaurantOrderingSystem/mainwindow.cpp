@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 
 #include <algorithm>
+#include <QRegularExpression>
 
 using json = nlohmann::json;
 
@@ -10,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Initialize progress bar properly
+    ui->orderProgressBar->setValue(0);
 
     statusTimer = new QTimer(this);
     connect(statusTimer, &QTimer::timeout, this, &MainWindow::updateOrderStatus);
@@ -52,7 +56,7 @@ void MainWindow::onReadyRead()
 QString MainWindow::cleanItemName(const QString &item)
 {
     QString clean = item;
-    clean.remove(QRegExp("[^a-zA-Z]"));
+    clean.remove(QRegularExpression("[^a-zA-Z]"));
     return clean;
 }
 
@@ -98,7 +102,6 @@ void MainWindow::on_submitOrderButton_clicked()
         return;
     }
 
-
     json order;
     order["item"] = item.toStdString();
     order["quantity"] = quantity;
@@ -112,10 +115,12 @@ void MainWindow::on_submitOrderButton_clicked()
     QString displayOrder = rawItem + " x " + QString::number(quantity);
 
     orderPlacedTime[displayOrder] = QDateTime::currentDateTime();
-
     ui->incomingOrdersList->addItem(displayOrder);
 
     currentOrder = displayOrder;
+
+    // Reset progress bar when new order starts
+    ui->orderProgressBar->setValue(0);
 
     orderStartTime.start();
     statusTimer->start(1000);
@@ -126,23 +131,41 @@ void MainWindow::updateOrderStatus()
 {
     int elapsed = orderStartTime.elapsed() / 1000;
 
+    int totalTime = 20;
+
+    int progress = (elapsed * 100) / totalTime;
+    if (progress > 100) progress = 100;
+
+    ui->orderProgressBar->setValue(progress);
+
     ui->preparingLabel->setStyleSheet("");
     ui->cookingLabel->setStyleSheet("");
     ui->readyLabel->setStyleSheet("");
 
     if (elapsed < 10) {
+        ui->preparingLabel->setText("Preparing... ⏳");
         ui->preparingLabel->setStyleSheet("color:#7CFFB2; font-weight:bold;");
     }
     else if (elapsed < 20) {
+        ui->cookingLabel->setText("Cooking... 🔥");
         ui->cookingLabel->setStyleSheet("color:#7CFFB2; font-weight:bold;");
     }
     else {
+        ui->readyLabel->setText("Ready! ✅");
         ui->readyLabel->setStyleSheet("color:#7CFFB2; font-weight:bold;");
+
+        QMessageBox::information(this, "Order Ready", "Your order is ready! 🎉");
+
         statusTimer->stop();
     }
 }
 
 // ================= NAVIGATION =================
+void MainWindow::on_backFromStatusButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menuPage);
+}
+
 void MainWindow::on_customerButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->menuPage);
@@ -211,7 +234,7 @@ void MainWindow::on_completeOrderButton_clicked()
     delete item;
 }
 
-// ================= HISTORY DETAILS =================
+// ================= HISTORY =================
 void MainWindow::on_historyListWidget_itemClicked(QListWidgetItem *item)
 {
     if (!item)

@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include <QTcpSocket>
 #include <vector>
+#include <QElapsedTimer>
 #include <nlohmann/json.hpp>
 
 QT_BEGIN_NAMESPACE
@@ -53,6 +54,9 @@ private slots:
     void onConnected();
     void onReadyRead();
 
+
+    void on_backFromStatusButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -62,7 +66,7 @@ private:
 
     // TIMER SYSTEM
     QTimer *statusTimer;
-    QTime orderStartTime;
+    QElapsedTimer orderStartTime;
 
     // TIME TRACKING
     QMap<QString, QDateTime> orderPlacedTime;

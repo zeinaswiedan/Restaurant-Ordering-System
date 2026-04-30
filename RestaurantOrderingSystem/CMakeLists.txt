@@ -9,57 +9,46 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
-
-
-
-
-
+# ✅ Find Qt correctly
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Network)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
 
+# ✅ Find JSON
+find_package(nlohmann_json REQUIRED)
+
+# ✅ Sources
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
 )
 
+# ✅ Create executable FIRST
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(RestaurantOrderingSystem
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET RestaurantOrderingSystem APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-    if(ANDROID)
-        add_library(RestaurantOrderingSystem SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(RestaurantOrderingSystem
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    add_executable(RestaurantOrderingSystem
+        ${PROJECT_SOURCES}
+    )
 endif()
 
-target_link_libraries(RestaurantOrderingSystem PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network)
+# ✅ THEN link libraries
+target_link_libraries(RestaurantOrderingSystem
+    PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Network
+    nlohmann_json::nlohmann_json
+)
 
-
-
-target_link_libraries(RestaurantOrderingSystem PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
+# ✅ macOS bundle settings (keep this)
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.RestaurantOrderingSystem)
 endif()
+
 set_target_properties(RestaurantOrderingSystem PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -68,6 +57,7 @@ set_target_properties(RestaurantOrderingSystem PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+# ✅ Install (optional but fine)
 include(GNUInstallDirs)
 install(TARGETS RestaurantOrderingSystem
     BUNDLE DESTINATION .
@@ -75,6 +65,7 @@ install(TARGETS RestaurantOrderingSystem
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+# ✅ Required for Qt6
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(RestaurantOrderingSystem)
 endif()
