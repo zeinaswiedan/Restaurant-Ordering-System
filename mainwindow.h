@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QElapsedTimer>
 #include <QMainWindow>
 #include <QString>
 #include <QListWidgetItem>
@@ -11,8 +10,9 @@
 #include <QDateTime>
 #include <QInputDialog>
 #include <QMessageBox>
-#include <QtNetwork/QTcpSocket>
+#include <QTcpSocket>
 #include <vector>
+#include <QElapsedTimer>
 #include <nlohmann/json.hpp>
 
 QT_BEGIN_NAMESPACE
@@ -31,9 +31,6 @@ public:
 
 private slots:
     // MENU
-
-    void onReadyRead();
-    void onConnected();
     void on_addToOrderButton_clicked();
     void on_submitOrderButton_clicked();
 
@@ -53,8 +50,14 @@ private slots:
     void on_historyListWidget_itemClicked(QListWidgetItem *item);
     void on_viewhistoryButton_clicked();
 
+    //  NETWORKING
+    void onConnected();
+    void onReadyRead();
+
+
+    void on_backFromStatusButton_clicked();
+
 private:
-   QTcpSocket *socket;
     Ui::MainWindow *ui;
 
     QString currentOrder;
@@ -68,6 +71,9 @@ private:
     // TIME TRACKING
     QMap<QString, QDateTime> orderPlacedTime;
     QMap<QString, QDateTime> orderCompletedTime;
+
+    // NETWORK
+    QTcpSocket *socket;
 
     // HELPER
     QString cleanItemName(const QString &item);

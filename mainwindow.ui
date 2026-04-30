@@ -34,8 +34,8 @@ QPushButton:hover {
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
+      <x>30</x>
+      <y>-10</y>
       <width>731</width>
       <height>671</height>
      </rect>
@@ -58,7 +58,7 @@ font-weight: bold;
        <rect>
         <x>110</x>
         <y>50</y>
-        <width>628</width>
+        <width>533</width>
         <height>480</height>
        </rect>
       </property>
@@ -74,10 +74,10 @@ font-weight: bold;
 }</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::Shape::StyledPanel</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Shadow::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
@@ -230,7 +230,7 @@ QPushButton:hover {
           <number>1</number>
          </property>
          <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
          </property>
          <property name="styleSheet">
           <string notr="true">QListWidget {
@@ -261,17 +261,17 @@ QListWidget::item:hover {
           <number>12</number>
          </property>
          <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectItems</enum>
+          <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
          </property>
          <property name="resizeMode">
-          <enum>QListView::Adjust</enum>
+          <enum>QListView::ResizeMode::Adjust</enum>
          </property>
          <property name="itemAlignment">
-          <set>Qt::AlignCenter</set>
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
          <item>
           <property name="text">
-           <string>Pasta - 75EGP 🍝
+           <string>Pasta 🍝
 </string>
           </property>
           <property name="font">
@@ -285,7 +285,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Chicken - 90EGP 🍗
+           <string>Chicken 🍗
 </string>
           </property>
           <property name="font">
@@ -299,7 +299,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Fish - 85EGP 🐟
+           <string>Fish 🐟
 </string>
           </property>
           <property name="font">
@@ -313,7 +313,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Meat - 160EGP 🥩
+           <string>Meat 🥩
 </string>
           </property>
           <property name="font">
@@ -327,7 +327,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Shawerma - 115EGP 🌯
+           <string>Shawerma 🌯
 </string>
           </property>
           <property name="font">
@@ -341,7 +341,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Fries - 50EGP 🍟
+           <string>Fries 🍟
 </string>
           </property>
           <property name="font">
@@ -355,7 +355,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Salad - 80EGP 🥗
+           <string>Salad 🥗
 </string>
           </property>
           <property name="font">
@@ -369,7 +369,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Soda - 25EGP 🥤</string>
+           <string>Soda 🥤</string>
           </property>
           <property name="font">
            <font>
@@ -387,7 +387,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Burger - 130EGP 🍔
+           <string>Burger 🍔
 </string>
           </property>
           <property name="font">
@@ -401,7 +401,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Pizza - 120EGP 🍕
+           <string>Pizza 🍕
 </string>
           </property>
           <property name="font">
@@ -415,7 +415,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Noodles - 80EGP 🍜
+           <string>Noodles 🍜
 </string>
           </property>
           <property name="font">
@@ -429,7 +429,7 @@ QListWidget::item:hover {
          </item>
          <item>
           <property name="text">
-           <string>Cake - 130EGP 🍰
+           <string>Cake 🍰
 </string>
           </property>
           <property name="font">
@@ -508,7 +508,7 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:14pt; font-weight:700; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:14pt; font-weight:700; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu Sans'; font-size:11pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
@@ -598,10 +598,10 @@ QPushButton:hover {
 }</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::Shape::StyledPanel</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Shadow::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
@@ -617,7 +617,7 @@ font-weight: bold;</string>
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Staff Dashboard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
            <property name="margin">
             <number>-4</number>
@@ -726,10 +726,10 @@ QPushButton:hover {
        <string notr="true">background-color:  rgb(222, 221, 218);</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::Shape::StyledPanel</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Shadow::Raised</enum>
       </property>
       <widget class="QWidget" name="verticalLayoutWidget_4">
        <property name="geometry">
@@ -747,7 +747,7 @@ QPushButton:hover {
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700; text-decoration: underline; color:#63452c;&quot;&gt;Order History&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -822,10 +822,10 @@ font-weight: bold;
 }</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::Shape::StyledPanel</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Shadow::Raised</enum>
       </property>
       <widget class="QWidget" name="verticalLayoutWidget_3">
        <property name="geometry">
@@ -845,6 +845,25 @@ font-weight: bold;
          </widget>
         </item>
         <item>
+         <widget class="QProgressBar" name="orderProgressBar">
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>36</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>7</height>
+           </size>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="preparingLabel">
           <property name="styleSheet">
            <string notr="true">color: #63452c;
@@ -855,7 +874,7 @@ font-weight: bold;</string>
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Preparing&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -871,7 +890,7 @@ font-weight: bold;
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Cooking&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -887,7 +906,14 @@ font-weight: bold;
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic; color:#986a44;&quot;&gt;Ready&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="backFromStatusButton">
+          <property name="text">
+           <string>Back</string>
           </property>
          </widget>
         </item>
@@ -903,7 +929,7 @@ font-weight: bold;
      <x>0</x>
      <y>0</y>
      <width>830</width>
-     <height>19</height>
+     <height>30</height>
     </rect>
    </property>
   </widget>
