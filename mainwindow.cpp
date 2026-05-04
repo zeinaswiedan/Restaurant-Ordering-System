@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
 
     // Initialize progress bar properly
     ui->orderProgressBar->setValue(0);
