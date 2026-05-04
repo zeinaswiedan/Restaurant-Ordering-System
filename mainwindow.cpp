@@ -3,8 +3,29 @@
 
 #include <algorithm>
 #include <QRegularExpression>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
+
 
 using json = nlohmann::json;
+
+void MainWindow::saveOrderToFile(const QString &item, int quantity)
+{
+    QString filePath = QDir::currentPath() + "/orders.txt";
+
+    QFile file(filePath);
+
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+
+        QString time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+
+        out << time << " | " << item << " | Qty: " << quantity << "\n";
+
+        file.close();
+    }
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -114,6 +135,8 @@ void MainWindow::on_submitOrderButton_clicked()
     ui->orderTextEdit->append("Order sent to server!");
 
     QString displayOrder = rawItem + " x " + QString::number(quantity);
+
+    saveOrderToFile(item, quantity);
 
     orderPlacedTime[displayOrder] = QDateTime::currentDateTime();
     ui->incomingOrdersList->addItem(displayOrder);

@@ -81,6 +81,9 @@ private:
 
     // HELPER
     QString cleanItemName(const QString &item);
+
+void saveOrderToFile(const QString &item, int quantity);
+
 };
 
 #endif // MAINWINDOW_H
