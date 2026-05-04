@@ -57,6 +57,10 @@ private slots:
 
     void on_backFromStatusButton_clicked();
 
+
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

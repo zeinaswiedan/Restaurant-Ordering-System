@@ -269,3 +269,12 @@ void MainWindow::on_historyListWidget_itemClicked(QListWidgetItem *item)
 
     ui->historyDetailsBox->setText(details);
 }
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
+
+}
+
