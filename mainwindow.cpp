@@ -70,7 +70,7 @@ void MainWindow::onReadyRead()
         ui->orderTextEdit->append("Server Status: " + status);
     }
     catch (...) {
-        ui->orderTextEdit->append("Invalid response from server");
+        ui->orderTextEdit->append(" ");
     }
 }
 
