@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QtNetwork/QTcpSocket>
+#include <QRegularExpression> 
 
 #include <algorithm>
 
@@ -20,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
 
     socket->connectToHost("127.0.0.1", 8080);
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
+
 }
 
 MainWindow::~MainWindow()
@@ -35,16 +39,18 @@ void MainWindow::onConnected()
 
 void MainWindow::onReadyRead()
 {
-    QByteArray data = socket->readAll();
+    static QByteArray buffer;
+buffer.append(socket->readAll());
 
     try {
-        json response = json::parse(data.toStdString());
+        json response = json::parse(buffer.toStdString());
         QString status = QString::fromStdString(response["status"]);
 
         ui->orderTextEdit->append("Server Status: " + status);
-    }
+buffer.clear();  
+  }
     catch (...) {
-        ui->orderTextEdit->append("Invalid response from server");
+        
     }
 }
 
@@ -52,7 +58,7 @@ void MainWindow::onReadyRead()
 QString MainWindow::cleanItemName(const QString &item)
 {
     QString clean = item;
-    clean.remove(QRegExp("[^a-zA-Z]"));
+    clean.remove(QRegularExpression("[^a-zA-Z]"));
     return clean;
 }
 
